@@ -22,9 +22,9 @@ If no text is present, reads from STDIN
 ## Install
 
 * Install [`curl`](https://github.com/curl/curl) and [`jq`](https://stedolan.github.io/jq/download/)
-* Downlaod the `tts` script somewhere on your `$PATH`:
-  * `curl <TODO> -o ~/.local/bin/tts`
-  * or use `sinister`: TODO
+* Download the `tts` script somewhere onto your `$PATH`:
+  * manually: `wget -P ~/.local/bin 'https://raw.githubusercontent.com/seanbreckenridge/tts/master/tts' && chmod +x ~/.local/bin/tts`
+  * or use [`sinister`](https://github.com/jamesqo/sinister) : `sh <(curl -sSL http://git.io/sinister) -u 'https://raw.githubusercontent.com/seanbreckenridge/tts/master/tts'`
 
 ## Examples
 

@@ -64,7 +64,7 @@ VOICES=(
 readonly VOICES
 
 usage() {
-	printf "Usage %s [-h] [-v VOICE] [-d FILENAME|-p] <text_to_speak>\n" "$0"
+	echo -e "Usage tts [-h] [-v VOICE] [-d FILENAME|-p] <text_to_speak>"
 }
 
 # Read arguments
@@ -84,6 +84,7 @@ while getopts ":ld:pv:h" OPT; do
 		printf "   -l           List available voices\n"
 		printf "   -d FILENAME  Download the .ogg file to FILENAME.ogg [default]\n"
 		printf "   -p           Instead of downloading, print the audio URL\n"
+		printf "\nDisclaimer: Not affiliated or endorsed by StreamLabs\n"
 		exit 0
 		;;
 	l)
@@ -134,28 +135,31 @@ LIST)
 	# get text to send to API
 	TEXT="$*"
 	if [[ -z "$TEXT" ]]; then
+		# print the log message if reading from STDIn
+		# dont print if it the user is trying to capture the URL using the -p flag
+		[[ "$COMMAND" != PRINT_URL ]] && echo "Reading text from STDIN..." >&2
 		TEXT="$(cat)"
 		readonly TEXT
 	fi
 	# encode JSON body
 	CURL_DATA="$(jq -n --arg TTS_VOICE "$VOICE" --arg TTS_TEXT "$TEXT" '{"voice":$TTS_VOICE, "text":$TTS_TEXT}')" || exit $?
 	# make request to StreamLabs
-	HTTP_RESP="$(curl --silent -X POST --data "$CURL_DATA" -H 'Content-Type: application/json' 'https://streamlabs.com/polly/speak')" || exit $?
-  # handle response
+  HTTP_RESP="$(curl --silent -X POST --data "$CURL_DATA" -H 'Content-Type: application/json' 'https://streamlabs.com/polly/speak')" || exit $?
+	# handle response
 	API_ERROR="$(jq -r '.error' <<<"$HTTP_RESP")"
-	if [[ "$API_ERROR" == null ]]; then  # request succeeded
+	if [[ "$API_ERROR" == null ]]; then # request succeeded
 		SPEAK_URL="$(jq -r '.speak_url' <<<"$HTTP_RESP")"
 		case "$COMMAND" in
 		PRINT_URL)
 			printf '%s\n' "$SPEAK_URL"
 			;;
-		*)  # default, download to file
+		*) # default, download to file
 			if curl -s "$SPEAK_URL" --output "$OUTPUT"; then
-        printf "Downloaded file to %s\n" "$OUTPUT"
-      else
-        printf 'Error downloading from %s\n' "$SPEAK_URL" >&2
-        exit 1
-      fi
+				printf "Downloaded file to %s\n" "$OUTPUT"
+			else
+				printf 'Error downloading from %s\n' "$SPEAK_URL" >&2
+				exit 1
+			fi
 			;;
 		esac
 	else
