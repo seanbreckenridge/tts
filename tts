@@ -144,7 +144,7 @@ LIST)
 	# encode JSON body
 	CURL_DATA="$(jq -n --arg TTS_VOICE "$VOICE" --arg TTS_TEXT "$TEXT" '{"voice":$TTS_VOICE, "text":$TTS_TEXT}')" || exit $?
 	# make request to StreamLabs
-  HTTP_RESP="$(curl --silent -X POST --data "$CURL_DATA" -H 'Content-Type: application/json' 'https://streamlabs.com/polly/speak')" || exit $?
+	HTTP_RESP="$(curl --silent -X POST --data "$CURL_DATA" -H 'Content-Type: application/json' 'https://streamlabs.com/polly/speak')" || exit $?
 	# handle response
 	API_ERROR="$(jq -r '.error' <<<"$HTTP_RESP")"
 	if [[ "$API_ERROR" == null ]]; then # request succeeded
