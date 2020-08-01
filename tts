@@ -1,7 +1,7 @@
 #!/bin/bash
 
 declare -A VOICES
-VOICES=(
+readonly VOICES=(
 	['Nicole']=1
 	['Enrique']=1
 	['Tatyana']=1
@@ -61,7 +61,6 @@ VOICES=(
 	['Hans']=1
 	['Kendra']=1
 )
-readonly VOICES
 
 usage() {
 	echo -e "Usage:  tts [-h] [-v VOICE] [-d FILENAME|-p] <text_to_speak>"
@@ -69,8 +68,8 @@ usage() {
 
 # Read arguments
 declare COMMAND VOICE TEXT
-COMMAND=DOWNLOAD
-VOICE=Brian
+COMMAND='DOWNLOAD'
+VOICE='Brian'
 OUTPUT="./tts-$(date '+%s').ogg"
 while getopts ":ld:pv:h" OPT; do
 	case "$OPT" in
@@ -88,17 +87,17 @@ while getopts ":ld:pv:h" OPT; do
 		exit 0
 		;;
 	l)
-		COMMAND=LIST
+		COMMAND='LIST'
 		;;
 	p)
-		COMMAND=PRINT_URL
+		COMMAND='PRINT_URL'
 		;;
 	v)
 		VOICE="$OPTARG"
 		[[ "${VOICES["$OPTARG"]+_}" ]] || printf "Warning: Could not find '%s' in the list of voices\n" "$OPTARG" >&2
 		;;
 	d)
-		COMMAND=DOWNLOAD
+		COMMAND='DOWNLOAD'
 		OUTPUT="${OPTARG%.*}.ogg"
 		OUTPUT_DIR="$(dirname "$OUTPUT")"
 		[[ -d "$OUTPUT_DIR" ]] || {
@@ -164,6 +163,7 @@ LIST)
 		esac
 	else
 		printf 'API Error: %s\n' "$API_ERROR" >&2
+		exit 1
 	fi
 	;;
 esac
