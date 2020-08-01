@@ -7,7 +7,7 @@ Interact with [StreamLabs](https://streamlabs.com/) TTS API endpoint.
 ## Usage
 
 ```
-Usage ./tts [-h] [-v VOICE] [-d FILENAME|-p] <text_to_speak>
+Usage:  tts [-h] [-v VOICE] [-d FILENAME|-p] <text_to_speak>
 Converts text to speech using the StreamLabs API
 Any other positional arguments are interpreted as the text input
 If no text is present, reads from STDIN

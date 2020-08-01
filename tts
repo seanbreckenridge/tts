@@ -64,7 +64,7 @@ VOICES=(
 readonly VOICES
 
 usage() {
-	echo -e "Usage tts [-h] [-v VOICE] [-d FILENAME|-p] <text_to_speak>"
+	echo -e "Usage:  tts [-h] [-v VOICE] [-d FILENAME|-p] <text_to_speak>"
 }
 
 # Read arguments
