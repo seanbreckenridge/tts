@@ -1,7 +1,5 @@
 # tts
 
-Dependencies: `jq`, `curl`
-
 Interact with [StreamLabs](https://streamlabs.com/) TTS API endpoint.
 
 ## Usage
