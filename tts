@@ -163,7 +163,7 @@ LIST)
 			;;
 		esac
 	else
-		printf 'API Error: %s\n' "$API_ERROR"
+		printf 'API Error: %s\n' "$API_ERROR" >&2
 	fi
 	;;
 esac
