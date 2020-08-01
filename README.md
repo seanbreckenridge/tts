@@ -1,6 +1,6 @@
 # tts
 
-Interact with [StreamLabs](https://streamlabs.com/) TTS API endpoint.
+A CLI tool to interact with the [StreamLabs](https://streamlabs.com/) Text-To-Speech API endpoint.
 
 ## Usage
 
