@@ -135,7 +135,7 @@ LIST)
 	# get text to send to API
 	TEXT="$*"
 	if [[ -z "$TEXT" ]]; then
-		# print the log message if reading from STDIn
+		# print the log message if reading from STDIN
 		# dont print if it the user is trying to capture the URL using the -p flag
 		[[ "$COMMAND" != PRINT_URL ]] && echo "Reading text from STDIN..." >&2
 		TEXT="$(cat)"
