@@ -46,5 +46,5 @@ Audio: <https://sean.fish/p/does_this_work.ogg>
 
 Converted to a nicer interface from the one liner found [here](https://gist.github.com/idealwebsolutions/84dcb061baa427050672b9b41f900ce8#comments).
 
-Disclaimer: Not affiliated or endorsed by StreamLabs
+Disclaimer: Not affiliated with or endorsed by StreamLabs
 

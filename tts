@@ -84,7 +84,7 @@ while getopts ":ld:pv:h" OPT; do
 		printf "   -l           List available voices\n"
 		printf "   -d FILENAME  Download the .ogg file to FILENAME.ogg [default]\n"
 		printf "   -p           Instead of downloading, print the audio URL\n"
-		printf "\nDisclaimer: Not affiliated or endorsed by StreamLabs\n"
+		printf "\nDisclaimer: Not affiliated with or endorsed by StreamLabs\n"
 		exit 0
 		;;
 	l)
