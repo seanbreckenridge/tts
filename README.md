@@ -38,6 +38,7 @@ tts -v Emma 'what?'  # use a different voice
 
 # save to filepath, and play after its downloaded. uses paplay, but mpv/vlc could also be used
 echo 'Does this work? NO? .OK.' | tts -d /tmp/sound.ogg && paplay /tmp/sound.ogg
+# Audio: https://sean.fish/p/does_this_work.ogg
 ```
 
 ## Notes
