@@ -67,7 +67,7 @@ usage() {
 }
 
 # Read arguments
-declare COMMAND VOICE TEXT
+declare COMMAND VOICE TEXT OUTPUT
 COMMAND='DOWNLOAD'
 VOICE='Brian'
 OUTPUT="./tts-$(date '+%s').ogg"
@@ -120,7 +120,7 @@ while getopts ":ld:pv:h" OPT; do
 	esac
 done
 shift $((OPTIND - 1))
-readonly COMMAND VOICE
+readonly COMMAND VOICE OUTPUT
 
 # dispatch on command
 case "$COMMAND" in
