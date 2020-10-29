@@ -19,10 +19,10 @@ If no text is present, reads from STDIN
 
 ## Install
 
-* Install [`curl`](https://github.com/curl/curl) and [`jq`](https://stedolan.github.io/jq/download/)
-* Download the `tts` script somewhere onto your `$PATH`:
-  * manually: `wget -P ~/.local/bin 'https://raw.githubusercontent.com/seanbreckenridge/tts/master/tts' && chmod +x ~/.local/bin/tts`
-  * or use [`sinister`](https://github.com/jamesqo/sinister) : `sh <(curl -sSL http://git.io/sinister) -u 'https://raw.githubusercontent.com/seanbreckenridge/tts/master/tts'`
+- Install [`curl`](https://github.com/curl/curl) and [`jq`](https://stedolan.github.io/jq/download/)
+- Download the `tts` script somewhere onto your `$PATH`:
+  - manually: `wget -P ~/.local/bin 'https://raw.githubusercontent.com/seanbreckenridge/tts/master/tts' && chmod +x ~/.local/bin/tts`
+  - or use [`sinister`](https://github.com/jamesqo/sinister) : `sh <(curl -sSL http://git.io/sinister) -u 'https://raw.githubusercontent.com/seanbreckenridge/tts/master/tts'`
 
 ## Examples
 
@@ -45,4 +45,3 @@ Audio: <https://sean.fish/p/does_this_work.ogg>
 Converted to a nicer interface from the one liner found [here](https://gist.github.com/idealwebsolutions/84dcb061baa427050672b9b41f900ce8#comments).
 
 Disclaimer: Not affiliated with or endorsed by StreamLabs
-
