@@ -15,7 +15,7 @@ havecmd() {
 		return 0
 	else
 		# construct error message
-		ERRMSG="'${script_name}' requires '${BINARY}', could not find that on your \${PATH}"
+		ERRMSG="'${script_name}' requires '${BINARY}', could not find that on your \$PATH"
 		if [[ -n "${2}" ]]; then
 			ERRMSG="${ERRMSG}. ${2}"
 		fi
