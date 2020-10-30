@@ -1,5 +1,34 @@
 #!/bin/bash
 
+# make sure external dependencies are installed
+# get the name of this script
+declare script_name
+script_name="$(basename "${BASH_SOURCE[0]}")"
+
+# function to verify an external command is installed
+havecmd() {
+	local BINARY ERRMSG
+	# error if first argument isn't provided
+	BINARY="${1:?Must provide command to check}"
+	# the commend exists, exit with 0 (success!)
+	if command -v "${BINARY}" >/dev/null 2>&1; then
+		return 0
+	else
+		# construct error message
+		ERRMSG="'${script_name}' requires '${BINARY}', could not find that on your \${PATH}"
+		if [[ -n "${2}" ]]; then
+			ERRMSG="${ERRMSG}. ${2}"
+		fi
+		printf '%s\n' "${ERRMSG}" 1>&2
+		return 1
+	fi
+}
+
+set -e
+havecmd curl
+havecmd jq "See https://stedolan.github.io/jq/download"
+set +e
+
 declare -A VOICES
 readonly VOICES=(
 	['Nicole']=1
@@ -63,7 +92,7 @@ readonly VOICES=(
 )
 
 usage() {
-	echo -e "Usage:  tts [-h] [-v VOICE] [-d FILENAME|-p] <text_to_speak>"
+	echo -e "Usage:  ${script_name} [-h] [-v VOICE] [-d FILENAME|-p] <text_to_speak>..."
 }
 
 # Read arguments
