@@ -19,10 +19,18 @@ If no text is present, reads from STDIN
 
 ## Install
 
-- Install [`curl`](https://github.com/curl/curl) and [`jq`](https://stedolan.github.io/jq/download/)
-- Download the `tts` script somewhere onto your `$PATH`:
-  - manually: `wget -P ~/.local/bin 'https://raw.githubusercontent.com/seanbreckenridge/tts/master/tts' && chmod +x ~/.local/bin/tts`
-  - or use [`sinister`](https://github.com/jamesqo/sinister) : `sh <(curl -sSL http://git.io/sinister) -u 'https://raw.githubusercontent.com/seanbreckenridge/tts/master/tts'`
+After installing [`curl`](https://github.com/curl/curl) and [`jq`](https://stedolan.github.io/jq/download/);
+
+Download the `tts` script somewhere onto your `$PATH`
+
+`wget -P ~/.local/bin 'https://raw.githubusercontent.com/seanbreckenridge/tts/master/tts' && chmod +x ~/.local/bin/tts`
+
+Could also use [`basher`](https://github.com/basherpm/basher):
+
+```bash
+basher install seanbreckenridge/tts
+```
+
 
 ## Examples
 
