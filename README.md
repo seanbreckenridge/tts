@@ -13,8 +13,10 @@ If no text is present, reads from STDIN
    -h           Prints this help message and exits
    -v VOICE     Change the voice used for TTS
    -l           List available voices
-   -d FILENAME  Download the .ogg file to FILENAME.ogg [default]
+   -d FILENAME  Download the .mpeg file to FILENAME.mpeg [default]
    -p           Instead of downloading, print the audio URL
+
+Disclaimer: Not affiliated with or endorsed by StreamLabs
 ```
 
 ## Install
@@ -31,7 +33,6 @@ Could also use [`basher`](https://github.com/basherpm/basher):
 basher install seanbreckenridge/tts
 ```
 
-
 ## Examples
 
 ```
@@ -43,10 +44,10 @@ tts 'O, o. .O, o.'
 tts -v Emma 'what?'  # use a different voice
 
 # save to filepath, and play after its downloaded. uses paplay, but mpv/vlc could also be used
-echo 'Does this work? NO? .OK.' | tts -d /tmp/sound.ogg && paplay /tmp/sound.ogg
+echo 'Does this work? NO? .OK.' | tts -d /tmp/sound.mpeg && plaympeg /tmp/sound.mpeg
 ```
 
-Audio: <https://sean.fish/p/does_this_work.ogg>
+Audio: <https://sean.fish/p/sound.mpeg>
 
 ## Notes
 

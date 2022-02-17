@@ -99,7 +99,7 @@ usage() {
 declare COMMAND VOICE TEXT OUTPUT
 COMMAND='DOWNLOAD'
 VOICE='Brian'
-OUTPUT="./tts-$(date '+%s').ogg"
+OUTPUT="./tts-$(date '+%s').mpeg"
 while getopts ":ld:pv:h" OPT; do
 	case "$OPT" in
 	h)
@@ -110,7 +110,7 @@ while getopts ":ld:pv:h" OPT; do
 		printf "   -h           Prints this help message and exits\n"
 		printf "   -v VOICE     Change the voice used for TTS\n"
 		printf "   -l           List available voices\n"
-		printf "   -d FILENAME  Download the .ogg file to FILENAME.ogg [default]\n"
+		printf "   -d FILENAME  Download the .mpeg file to FILENAME.mpeg [default]\n"
 		printf "   -p           Instead of downloading, print the audio URL\n"
 		printf "\nDisclaimer: Not affiliated with or endorsed by StreamLabs\n"
 		exit 0
@@ -127,7 +127,7 @@ while getopts ":ld:pv:h" OPT; do
 		;;
 	d)
 		COMMAND='DOWNLOAD'
-		OUTPUT="${OPTARG%.*}.ogg"
+		OUTPUT="${OPTARG%.*}.mpeg"
 		OUTPUT_DIR="$(dirname "$OUTPUT")"
 		[[ -d "$OUTPUT_DIR" ]] || {
 			printf "Error: Output directory '%s' does not exist\n" "$OUTPUT_DIR" >&2
