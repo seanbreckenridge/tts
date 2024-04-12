@@ -1,3 +1,7 @@
+### Project Status
+
+This was always using an undocumented API, seems that the underlying APIs have changed so this no longer works. The endpoint used to be at <https://streamlabs.com/polly/speak>, if anyone knows if there's an updated URL feel free to open an issue.
+
 # tts
 
 A CLI tool to interact with the [StreamLabs](https://streamlabs.com/) Text-To-Speech API endpoint.
